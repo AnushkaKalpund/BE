@@ -1,14 +1,14 @@
 import express from "express";
 import cors from 'cors';
 import mongoose from "mongoose";
-import dotenv from 'dotenv';
-
+import dotenv from 'dotenv'; 
+dotenv.config();
 
 import { userRouter} from  './routes/users.js';
 import { recipesRouter} from  './routes/recipes.js';
 
 const app = express();
-const port = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 
 app.use(express.json());
@@ -26,4 +26,4 @@ mongoose.connect("mongodb+srv://PRANITA:anushka@cluster0.1gufhdp.mongodb.net/Clu
 }).catch((e) =>{
     console.log(e);
 });
-app.listen(port, () => console.log("SERVER STARTED!"));
+app.listen(PORT, () => console.log("SERVER STARTED!"));
